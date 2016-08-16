@@ -1,0 +1,13 @@
+{%  load staticfiles %}
+<header>
+    <img src="../{% static 'UI_TextBooks.png' %}" style="width:512px;height:144px;padding:10px;"/>
+    <link rel="stylesheet" type="text/css" href="../{% static 'listing/layout1.css' %}"  />
+    </header>
+<div id="sidebar"> <br /> [<a href="..">home</a>] <br /> [<a href="../listing/search/">search</a>] <br />[<a href="../listing/submit/">post a listing</a>]</div>
+<div id="body">
+
+<ul>
+	{% for result in listings %}
+	<li><a href="../listing/{{result.id}}/">{{ result.title }}</a> - {{ result.price }} - {{ result.pub_date.month }}/{{ result.pub_date.day }}/{{result.pub_date.year}}</li>		{% endfor %}
+</ul>
+</div>

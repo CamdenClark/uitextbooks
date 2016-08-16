@@ -1,0 +1,20 @@
+{%  load staticfiles %}
+<header>
+    <img src="../../{% static 'UI_TextBooks.png' %}" style="width:512px;height:144px;padding:10px;"/>
+    <link rel="stylesheet" type="text/css" href="../../{% static 'listing/layout1.css' %}"  />
+    </header>
+<div id="sidebar"> <br /> [<a href="../..">home</a>] <br /> [<a href=".">search</a>] <br />[<a href="../submit/">post a listing</a>]</div>
+<div id="body">
+
+
+<form action="/search_results/" method="post">
+{% csrf_token %}
+
+<p>Subject Code (eg AMST or MATH): {{ form.subject_code }}</p>
+<p>Class Number (eg 101 or 201): {{ form.class_number }}</p>
+<br />
+<input type="submit" value="Submit" />
+</form>
+<p>Make sure these are exact as the search does not accept partial results.</p>
+<br />
+</div>

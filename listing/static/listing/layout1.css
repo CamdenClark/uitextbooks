@@ -1,0 +1,13 @@
+header {
+    color: green;
+    min-height: 175px;
+    background-color: black;
+}
+html {
+    background-color: lightblue;
+    font-family: "Open Sans", Arial, sans-serif;
+}
+#body {
+    float: right; width: 80%; margin-right: 7%;
+}
+#sidebar { float:left; width: 10%; min-height:800px;  background-color: gainsboro}

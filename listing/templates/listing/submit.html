@@ -1,0 +1,27 @@
+{%  load staticfiles %}
+<header>
+    <img src="../../{% static 'UI_TextBooks.png' %}" style="width:512px;height:144px;padding:10px;"/>
+    <link rel="stylesheet" type="text/css" href="../../{% static 'listing/layout1.css' %}"  />
+    </header>
+<div id="sidebar"> <br /> [<a href="../../">home</a>] <br /> [<a href="../search/">search</a>] <br />[<a href=".">post a listing</a>]</div>
+<div id="body">
+
+{% if invalid %}
+<p>Your submission was wrong.</p>
+{% endif %}
+<form action="/submission/" method="post">
+	{% csrf_token %}
+
+	<p>Title of Listing: {{ form.title }}</p>
+    <p>Passcode (remember this, needed to delete your listing): {{ form.password }}</p>
+	<p>Email: {{ form.email }}</p>
+	<p>Desired Price: {{ form.price }}</p>
+	<p>Description and Extra Information (I can't host images locally, but feel free to use an image host like imgur and post a link):</p>
+	<p> {{ form.body }}</p>
+	<p>Subject Code (eg. AMST or MATH): {{ form.subject }}</p>
+	<p>Course Code (eg. 201 or 101): {{ form.course_number }}</p>
+<p>Make sure these are exact as the search function does not accept partial results. Don't leave any fields blank or it won't accept your submission.</p>
+	<br />
+	<input type="submit" value="Submit" />
+</form>
+</div>

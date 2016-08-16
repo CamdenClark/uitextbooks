@@ -1,0 +1,20 @@
+{%  load staticfiles %}
+<header>
+    <img src="../../{% static 'UI_TextBooks.png' %}" style="width:512px;height:144px;padding:10px;"/>
+    <link rel="stylesheet" type="text/css" href="../../{% static 'listing/layout1.css' %}"  />
+    </header>
+<div id="sidebar"> <br /> [<a href="../..">home</a>] <br /> [<a href="../search/">search</a>] <br />[<a href="../submit/">post a listing</a>]</div>
+<div id="body">
+
+{% if listing %}
+<h1>{{listing.title}}</h1>
+<h3>{{listing.subject}} {{listing.course_number}}</h3>
+<h4>Contact: {{listing.email}}</h4>
+<h5>{{listing.price}}</h5>
+<p>Posted: {{listing.pub_date.month}}/{{listing.pub_date.day}}/{{listing.pub_date.year}}</p>
+<p>{{listing.body}}</p>
+
+{% else %}
+<p>Listing doesn't exist.</p>
+{% endif %}
+</div>
